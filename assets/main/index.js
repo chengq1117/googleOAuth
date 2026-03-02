@@ -1,1 +1,291 @@
-window.__require=function o(t,e,n){function c(i,l){if(!e[i]){if(!t[i]){var s=i.split("/");if(s=s[s.length-1],!t[s]){var a="function"==typeof __require&&__require;if(!l&&a)return a(s,!0);if(r)return r(s,!0);throw new Error("Cannot find module '"+i+"'")}i=s}var u=e[i]={exports:{}};t[i][0].call(u.exports,function(o){return c(t[i][1][o]||o)},u,u.exports,o,t,e,n)}return e[i].exports}for(var r="function"==typeof __require&&__require,i=0;i<n.length;i++)c(n[i]);return c}({GoogleSignInUtils:[function(o,t,e){"use strict";cc._RF.push(t,"2987bEGl55Kapd5iU4uC3a0","GoogleSignInUtils");var n=this&&this.__awaiter||function(o,t,e,n){return new(e||(e=Promise))(function(c,r){function i(o){try{s(n.next(o))}catch(t){r(t)}}function l(o){try{s(n.throw(o))}catch(t){r(t)}}function s(o){var t;o.done?c(o.value):(t=o.value,t instanceof e?t:new e(function(o){o(t)})).then(i,l)}s((n=n.apply(o,t||[])).next())})},c=this&&this.__generator||function(o,t){var e,n,c,r,i={label:0,sent:function(){if(1&c[0])throw c[1];return c[1]},trys:[],ops:[]};return r={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(r[Symbol.iterator]=function(){return this}),r;function l(o){return function(t){return s([o,t])}}function s(r){if(e)throw new TypeError("Generator is already executing.");for(;i;)try{if(e=1,n&&(c=2&r[0]?n.return:r[0]?n.throw||((c=n.return)&&c.call(n),0):n.next)&&!(c=c.call(n,r[1])).done)return c;switch(n=0,c&&(r=[2&r[0],c.value]),r[0]){case 0:case 1:c=r;break;case 4:return i.label++,{value:r[1],done:!1};case 5:i.label++,n=r[1],r=[0];continue;case 7:r=i.ops.pop(),i.trys.pop();continue;default:if(!(c=(c=i.trys).length>0&&c[c.length-1])&&(6===r[0]||2===r[0])){i=0;continue}if(3===r[0]&&(!c||r[1]>c[0]&&r[1]<c[3])){i.label=r[1];break}if(6===r[0]&&i.label<c[1]){i.label=c[1],c=r;break}if(c&&i.label<c[2]){i.label=c[2],i.ops.push(r);break}c[2]&&i.ops.pop(),i.trys.pop();continue}r=t.call(o,i)}catch(l){r=[6,l],n=0}finally{e=c=0}if(5&r[0])throw r[1];return{value:r[0]?r[1]:void 0,done:!0}}};Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function o(){this.authSuccessCallback=null,this.authErrorCallback=null}return o.getInstance=function(){return o.instance||(o.instance=new o,o.instance.init()),o.instance},o.prototype.init=function(){cc.game.on("on_GoogleLoginSuccess",function(t){console.log("on_GoogleLoginSuccess",t),o.instance.authSuccessCallback&&o.instance.authSuccessCallback(t),o.instance.clean()}),cc.game.on("on_GoogleLoginFailed",function(){o.instance.authErrorCallback&&o.instance.authErrorCallback(),o.instance.clean()})},o.prototype.GoogleSignIn=function(o,t){var e=this;this.authSuccessCallback=o,this.authErrorCallback=t,cc.sys.isNative?cc.sys.os==cc.sys.OS_IOS?jsb.reflection.callStaticMethod("AppController","sendGoogleAuthReq:","signIn"):cc.sys.os==cc.sys.OS_ANDROID&&jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils","signIn","()V"):(cc.log("GoogleLogin",window.google.accounts.id),window.google.accounts.oauth2.initCodeClient({client_id:"1462738706-65t1sto1gmft09ekukq13v4af1cgrqjj.apps.googleusercontent.com",scope:"https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",ux_mode:"popup",callback:function(o){return n(e,void 0,void 0,function(){return c(this,function(){return cc.log("handleCredentialResponse",o),o.error?cc.log("Google login failed",o.error):cc.log("Google login success, code:",o.code),[2]})})},intermediate_iframe_close_callback:function(){cc.log("intermediate_iframe_close_callback")}}).requestCode())},o.prototype.GoogleSignOut=function(){cc.sys.isNative?cc.sys.os==cc.sys.OS_IOS?jsb.reflection.callStaticMethod("AppController","logoutGoogle:","signOut"):cc.sys.os==cc.sys.OS_ANDROID&&jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils","signOut","()V"):cc.sys.isBrowser&&cc.director.emit("GoogleLogout")},o.prototype.getIdToken=function(){return cc.sys.os==cc.sys.OS_IOS?jsb.reflection.callStaticMethod("AppController","getGoogleToken:","getIdToken"):cc.sys.os==cc.sys.OS_ANDROID?jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils","getIdToken","()Ljava/lang/String;"):void 0},o.prototype.clean=function(){this.authSuccessCallback=null,this.authErrorCallback=null},o.instance=null,o}();e.default=r,cc._RF.pop()},{}],Helloworld:[function(o,t,e){"use strict";cc._RF.push(t,"e1b90/rohdEk4SdmmEZANaD","Helloworld");var n,c=this&&this.__extends||(n=function(o,t){return(n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(o,t){o.__proto__=t}||function(o,t){for(var e in t)Object.prototype.hasOwnProperty.call(t,e)&&(o[e]=t[e])})(o,t)},function(o,t){function e(){this.constructor=o}n(o,t),o.prototype=null===t?Object.create(t):(e.prototype=t.prototype,new e)}),r=this&&this.__decorate||function(o,t,e,n){var c,r=arguments.length,i=r<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,e):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)i=Reflect.decorate(o,t,e,n);else for(var l=o.length-1;l>=0;l--)(c=o[l])&&(i=(r<3?c(i):r>3?c(t,e,i):c(t,e))||i);return r>3&&i&&Object.defineProperty(t,e,i),i};Object.defineProperty(e,"__esModule",{value:!0});var i=o("./GoogleSignInUtils"),l=cc._decorator,s=l.ccclass,a=l.property,u=function(o){function t(){var t=null!==o&&o.apply(this,arguments)||this;return t.label=null,t.text="hello",t.googleLoginBtn=null,t}return c(t,o),t.prototype.start=function(){var o=this;this.label.string=this.text,this.googleLoginBtn.active=!1;var t=document.createElement("script");t.src="https://accounts.google.com/gsi/client",t.async=!0,document.head.appendChild(t),t.onload=function(){o.googleLoginBtn.active=!0}},t.prototype.googleLogin=function(){cc.log("googleLogin"),i.default.getInstance().GoogleSignIn(function(o){cc.log("google login success, idToken:",o)},function(){cc.log("google login error")})},r([a(cc.Label)],t.prototype,"label",void 0),r([a],t.prototype,"text",void 0),r([a(cc.Node)],t.prototype,"googleLoginBtn",void 0),r([s],t)}(cc.Component);e.default=u,cc._RF.pop()},{"./GoogleSignInUtils":"GoogleSignInUtils"}]},{},["GoogleSignInUtils","Helloworld"]);
+window.__require = function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var b = o.split("/");
+        b = b[b.length - 1];
+        if (!t[b]) {
+          var a = "function" == typeof __require && __require;
+          if (!u && a) return a(b, !0);
+          if (i) return i(b, !0);
+          throw new Error("Cannot find module '" + o + "'");
+        }
+        o = b;
+      }
+      var f = n[o] = {
+        exports: {}
+      };
+      t[o][0].call(f.exports, function(e) {
+        var n = t[o][1][e];
+        return s(n || e);
+      }, f, f.exports, e, t, n, r);
+    }
+    return n[o].exports;
+  }
+  var i = "function" == typeof __require && __require;
+  for (var o = 0; o < r.length; o++) s(r[o]);
+  return s;
+}({
+  GoogleSignInUtils: [ function(require, module, exports) {
+    "use strict";
+    cc._RF.push(module, "2987bEGl55Kapd5iU4uC3a0", "GoogleSignInUtils");
+    "use strict";
+    var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+          resolve(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __generator = this && this.__generator || function(thisArg, body) {
+      var _ = {
+        label: 0,
+        sent: function() {
+          if (1 & t[0]) throw t[1];
+          return t[1];
+        },
+        trys: [],
+        ops: []
+      }, f, y, t, g;
+      return g = {
+        next: verb(0),
+        throw: verb(1),
+        return: verb(2)
+      }, "function" === typeof Symbol && (g[Symbol.iterator] = function() {
+        return this;
+      }), g;
+      function verb(n) {
+        return function(v) {
+          return step([ n, v ]);
+        };
+      }
+      function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+          if (f = 1, y && (t = 2 & op[0] ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 
+          0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+          (y = 0, t) && (op = [ 2 & op[0], t.value ]);
+          switch (op[0]) {
+           case 0:
+           case 1:
+            t = op;
+            break;
+
+           case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+           case 5:
+            _.label++;
+            y = op[1];
+            op = [ 0 ];
+            continue;
+
+           case 7:
+            op = _.ops.pop();
+            _.trys.pop();
+            continue;
+
+           default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (6 === op[0] || 2 === op[0])) {
+              _ = 0;
+              continue;
+            }
+            if (3 === op[0] && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+            if (6 === op[0] && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+              _.ops.push(op);
+              break;
+            }
+            t[2] && _.ops.pop();
+            _.trys.pop();
+            continue;
+          }
+          op = body.call(thisArg, _);
+        } catch (e) {
+          op = [ 6, e ];
+          y = 0;
+        } finally {
+          f = t = 0;
+        }
+        if (5 & op[0]) throw op[1];
+        return {
+          value: op[0] ? op[1] : void 0,
+          done: true
+        };
+      }
+    };
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    var GoogleSignInUtils = function() {
+      function GoogleSignInUtils() {
+        this.authSuccessCallback = null;
+        this.authErrorCallback = null;
+      }
+      GoogleSignInUtils.getInstance = function() {
+        if (!GoogleSignInUtils.instance) {
+          GoogleSignInUtils.instance = new GoogleSignInUtils();
+          GoogleSignInUtils.instance.init();
+        }
+        return GoogleSignInUtils.instance;
+      };
+      GoogleSignInUtils.prototype.init = function() {
+        cc.game.on("on_GoogleLoginSuccess", function(params) {
+          console.log("on_GoogleLoginSuccess", params);
+          GoogleSignInUtils.instance.authSuccessCallback && GoogleSignInUtils.instance.authSuccessCallback(params);
+          GoogleSignInUtils.instance.clean();
+        });
+        cc.game.on("on_GoogleLoginFailed", function() {
+          GoogleSignInUtils.instance.authErrorCallback && GoogleSignInUtils.instance.authErrorCallback();
+          GoogleSignInUtils.instance.clean();
+        });
+      };
+      GoogleSignInUtils.prototype.GoogleSignIn = function(authSuccessCallback, authErrorCallback) {
+        var _this = this;
+        this.authSuccessCallback = authSuccessCallback;
+        this.authErrorCallback = authErrorCallback;
+        if (cc.sys.isNative) cc.sys.os == cc.sys.OS_IOS ? jsb.reflection.callStaticMethod("AppController", "sendGoogleAuthReq:", "signIn") : cc.sys.os == cc.sys.OS_ANDROID && jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils", "signIn", "()V"); else {
+          cc.log("GoogleLogin", window.google.accounts.id);
+          var client = window.google.accounts.oauth2.initCodeClient({
+            client_id: "1462738706-65t1sto1gmft09ekukq13v4af1cgrqjj.apps.googleusercontent.com",
+            scope: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+            ux_mode: "popup",
+            callback: function(response) {
+              return __awaiter(_this, void 0, void 0, function() {
+                return __generator(this, function(_a) {
+                  cc.log("handleCredentialResponse", response);
+                  response.error ? cc.log("Google login failed", response.error) : cc.log("Google login success, code:", response.code);
+                  return [ 2 ];
+                });
+              });
+            },
+            intermediate_iframe_close_callback: function() {
+              cc.log("intermediate_iframe_close_callback");
+            }
+          });
+          client.requestCode();
+        }
+      };
+      GoogleSignInUtils.prototype.GoogleSignOut = function() {
+        cc.sys.isNative ? cc.sys.os == cc.sys.OS_IOS ? jsb.reflection.callStaticMethod("AppController", "logoutGoogle:", "signOut") : cc.sys.os == cc.sys.OS_ANDROID && jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils", "signOut", "()V") : cc.sys.isBrowser && cc.director.emit("GoogleLogout");
+      };
+      GoogleSignInUtils.prototype.getIdToken = function() {
+        if (cc.sys.os == cc.sys.OS_IOS) return jsb.reflection.callStaticMethod("AppController", "getGoogleToken:", "getIdToken");
+        if (cc.sys.os == cc.sys.OS_ANDROID) return jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils", "getIdToken", "()Ljava/lang/String;");
+      };
+      GoogleSignInUtils.prototype.clean = function() {
+        this.authSuccessCallback = null;
+        this.authErrorCallback = null;
+      };
+      GoogleSignInUtils.instance = null;
+      return GoogleSignInUtils;
+    }();
+    exports.default = GoogleSignInUtils;
+    cc._RF.pop();
+  }, {} ],
+  Helloworld: [ function(require, module, exports) {
+    "use strict";
+    cc._RF.push(module, "e1b90/rohdEk4SdmmEZANaD", "Helloworld");
+    "use strict";
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || {
+          __proto__: []
+        } instanceof Array && function(d, b) {
+          d.__proto__ = b;
+        } || function(d, b) {
+          for (var p in b) Object.prototype.hasOwnProperty.call(b, p) && (d[p] = b[p]);
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
+    var __decorate = this && this.__decorate || function(decorators, target, key, desc) {
+      var c = arguments.length, r = c < 3 ? target : null === desc ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+      if ("object" === typeof Reflect && "function" === typeof Reflect.decorate) r = Reflect.decorate(decorators, target, key, desc); else for (var i = decorators.length - 1; i >= 0; i--) (d = decorators[i]) && (r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r);
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    var GoogleSignInUtils_1 = require("./GoogleSignInUtils");
+    var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+    var Helloworld = function(_super) {
+      __extends(Helloworld, _super);
+      function Helloworld() {
+        var _this = null !== _super && _super.apply(this, arguments) || this;
+        _this.label = null;
+        _this.text = "hello";
+        _this.googleLoginBtn = null;
+        return _this;
+      }
+      Helloworld.prototype.start = function() {
+        var _this = this;
+        this.label.string = this.text;
+        this.googleLoginBtn.active = false;
+        var script = document.createElement("script");
+        script.src = "https://accounts.google.com/gsi/client";
+        script.async = true;
+        document.head.appendChild(script);
+        script.onload = function() {
+          _this.googleLoginBtn.active = true;
+        };
+      };
+      Helloworld.prototype.googleLogin = function() {
+        cc.log("googleLogin");
+        GoogleSignInUtils_1.default.getInstance().GoogleSignIn(function(idToken) {
+          cc.log("google login success, idToken:", idToken);
+        }, function() {
+          cc.log("google login error");
+        });
+      };
+      __decorate([ property(cc.Label) ], Helloworld.prototype, "label", void 0);
+      __decorate([ property ], Helloworld.prototype, "text", void 0);
+      __decorate([ property(cc.Node) ], Helloworld.prototype, "googleLoginBtn", void 0);
+      Helloworld = __decorate([ ccclass ], Helloworld);
+      return Helloworld;
+    }(cc.Component);
+    exports.default = Helloworld;
+    cc._RF.pop();
+  }, {
+    "./GoogleSignInUtils": "GoogleSignInUtils"
+  } ]
+}, {}, [ "GoogleSignInUtils", "Helloworld" ]);
