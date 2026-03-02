@@ -28,7 +28,7 @@ window.__require = function e(t, n, r) {
 }({
   GoogleSignInUtils: [ function(require, module, exports) {
     "use strict";
-    cc._RF.push(module, "2987bEGl55Kapd5iU4uC3a0", "GoogleSignInUtils");
+    cc._RF.push(module, "0ef518oxcNJ/JDhCmInHm96", "GoogleSignInUtils");
     "use strict";
     var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -177,7 +177,7 @@ window.__require = function e(t, n, r) {
         this.authSuccessCallback = authSuccessCallback;
         this.authErrorCallback = authErrorCallback;
         if (cc.sys.isNative) cc.sys.os == cc.sys.OS_IOS ? jsb.reflection.callStaticMethod("AppController", "sendGoogleAuthReq:", "signIn") : cc.sys.os == cc.sys.OS_ANDROID && jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils", "signIn", "()V"); else {
-          cc.log("GoogleLogin", window.google.accounts.id);
+          console.log("GoogleLogin", window.google.accounts.id);
           var client = window.google.accounts.oauth2.initCodeClient({
             client_id: "1462738706-65t1sto1gmft09ekukq13v4af1cgrqjj.apps.googleusercontent.com",
             scope: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
@@ -185,8 +185,8 @@ window.__require = function e(t, n, r) {
             callback: function(response) {
               return __awaiter(_this, void 0, void 0, function() {
                 return __generator(this, function(_a) {
-                  cc.log("handleCredentialResponse", response);
-                  response.error ? cc.log("Google login failed", response.error) : cc.log("Google login success, code:", response.code);
+                  console.log("handleCredentialResponse", response);
+                  response.error ? console.log("Google login failed", response.error) : console.log("Google login success, code:", response.code);
                   return [ 2 ];
                 });
               });
@@ -270,11 +270,13 @@ window.__require = function e(t, n, r) {
         };
       };
       Helloworld.prototype.googleLogin = function() {
-        cc.log("googleLogin");
+        var _this = this;
         GoogleSignInUtils_1.default.getInstance().GoogleSignIn(function(idToken) {
-          cc.log("google login success, idToken:", idToken);
+          console.log("Google login success, user info:", idToken);
+          _this.label.string = "idToken";
         }, function() {
-          cc.log("google login error");
+          console.log("Google login failed");
+          _this.label.string = "Google login failed";
         });
       };
       __decorate([ property(cc.Label) ], Helloworld.prototype, "label", void 0);
