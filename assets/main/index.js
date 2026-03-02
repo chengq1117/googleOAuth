@@ -186,7 +186,13 @@ window.__require = function e(t, n, r) {
               return __awaiter(_this, void 0, void 0, function() {
                 return __generator(this, function(_a) {
                   console.log("handleCredentialResponse", response);
-                  response.error ? console.log("Google login failed", response.error) : console.log("Google login success, code:", response.code);
+                  if (response.error) {
+                    console.log("Google login failed", response.error);
+                    this.authErrorCallback && this.authErrorCallback();
+                  } else {
+                    console.log("Google login success, code:", response.code);
+                    this.authSuccessCallback && this.authSuccessCallback(response.code);
+                  }
                   return [ 2 ];
                 });
               });
@@ -273,7 +279,7 @@ window.__require = function e(t, n, r) {
         var _this = this;
         GoogleSignInUtils_1.default.getInstance().GoogleSignIn(function(idToken) {
           console.log("Google login success, user info:", idToken);
-          _this.label.string = "idToken";
+          _this.label.string = idToken;
         }, function() {
           console.log("Google login failed");
           _this.label.string = "Google login failed";
