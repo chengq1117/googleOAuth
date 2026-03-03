@@ -179,10 +179,9 @@ window.__require = function e(t, n, r) {
         if (cc.sys.isNative) cc.sys.os == cc.sys.OS_IOS ? jsb.reflection.callStaticMethod("AppController", "sendGoogleAuthReq:", "signIn") : cc.sys.os == cc.sys.OS_ANDROID && jsb.reflection.callStaticMethod("org/cocos2dx/javascript/GoogleSignInUtils", "signIn", "()V"); else {
           console.log("GoogleLogin", window.google.accounts.id);
           var client = window.google.accounts.oauth2.initCodeClient({
-            client_id: "1462738706-65t1sto1gmft09ekukq13v4af1cgrqjj.apps.googleusercontent.com",
+            client_id: "600401486639-465eeuiqnjv4t40fabmkv0c35poct4dj.apps.googleusercontent.com",
             scope: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
             ux_mode: "popup",
-            redirect_uri: "https://chengq1117.github.io",
             callback: function(response) {
               return __awaiter(_this, void 0, void 0, function() {
                 return __generator(this, function(_a) {
